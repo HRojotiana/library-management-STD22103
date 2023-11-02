@@ -50,7 +50,7 @@ paths:
   /authors:
   #TODO2: complete GET (can be filtered by name) - PUT - DELETE
     get:
-      summary: get all authors 
+      summary: Get all authors 
       description: The returned authors are ordered by name 
       operationId: getAuthors
       parameters:
