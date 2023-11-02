@@ -88,6 +88,19 @@ paths:
                 type: array
                 items: 
                   $ref: '#/components/schemas/Author'
+    delete:
+      summary: Delete an author
+      description: Delete an author by id 
+      operationId: deleteAuthor
+      parameters:
+        - name: id 
+          in: path
+          required: true
+          schema: 
+            type: string
+      responses:
+        200:
+          description: An author deleted
 components:
   schemas:
     Book:
