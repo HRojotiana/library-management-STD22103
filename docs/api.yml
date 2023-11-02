@@ -49,6 +49,26 @@ paths:
                   $ref: '#/components/schemas/Book'
   /authors:
   #TODO2: complete GET (can be filtered by name) - PUT - DELETE
+    get:
+      summary: get all authors 
+      description: The returned authors are ordered by name 
+      operationId: getAuthors
+      parameters:
+        - in: query
+          name: name
+          description: filter authors by name
+          required: false
+          schema: 
+            type: string
+      responses:
+        200: 
+          description: list of filter author 
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  $ref: '#/components/schemas/Author'
 components:
   schemas:
     Book:
