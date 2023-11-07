@@ -246,6 +246,21 @@ paths:
             application/json:
               schema: 
                 $ref: "#/components/schemas/Topic"
+    delete:
+      summary: Delete a topic
+      description: Delete a topic by id 
+      operationId: deleteTopic
+      tags:
+        - Topics
+      parameters:
+        - name: id 
+          in: path
+          required: true
+          schema: 
+            type: string
+      responses:
+        200:
+          description: A topic deleted
 components:
   schemas:
     Book:
