@@ -1,0 +1,28 @@
+2.b.i. Pourquoi UpdateBookAuthor possède uniquement l’identifiant de
+CrupdateBook et l’identifiant de Author, mais sans les autres propriétés
+telles que bookName et authorName comme dans leur composant
+respectif ?
+
+--> Le composant UpdateBookAuthor ici est indépendant de Book et de Author alors il n'hérite aucun des
+propriétés de CrupdateBook et Author
+
+
+2.b.ii. Dans quel cas, UpdateBookAuthor devrait avoir les propriétés de
+CrupdateBook et de Author ?
+
+--> UpdateBookAuthor devrait avoir les propriétés de CrupdateBook at de Author
+seulement si c'est un composant qui hérite de ces deux autres composants
+
+3.a. Pourquoi les paginations sont-elles nécéssaires?
+--> Les paginations sont nécessaires pour limiter la quantité des données
+dans une seule réponse parce qu'elles permettent de diviser les réponses en plusieurs pages
+
+4.a.Est ce qu’on peut gérer la pagination à travers les entêtes de la requête ?
+Justifiez votre réponse
+
+--> Oui. On peut inclure les des valeurs dans les "path"
+
+4.b.Est ce qu’on doit gérer la pagination à travers les entêtes de la requête ?
+Justifiez votre réponse
+
+--> Oui. C'est plus flexible.
