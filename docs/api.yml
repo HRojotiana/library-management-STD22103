@@ -222,11 +222,30 @@ paths:
             type: string
       responses:
           200:
-            description: The updated book with the author
+            description: List of all topics sorted by name
             content:
               application/json:
                 schema: 
                   $ref: "#/components/schemas/Topic"
+    put:
+      summary: Create or update a list of topics
+      operationId: crupdateTopics
+      tags:
+        - Topics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Topic'
+      responses:
+        200:
+          description: The updated topic
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Topic"
 components:
   schemas:
     Book:
