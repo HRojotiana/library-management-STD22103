@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Library API
-  version: 1.0.2
+  version: 1.2.0
   description: STD22103
 servers:
   - url: https://library.com
@@ -297,7 +297,22 @@ paths:
             application/json:
               schema: 
                 $ref: "#/components/schemas/UpdateBookTopic"
-    
+  /authorTopics:
+    get:
+      tags:
+        - Topics 
+      summary: Get all books
+      description: The returned authors with topics
+      operationId: getAuthorTopics
+      responses:
+        200:
+          description: List of author and topics
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  $ref: "#/components/schemas/AuthorTopic"
 components:
   schemas:
     Book:
@@ -360,4 +375,10 @@ components:
       required:
         - bookId
         - topicId
-    
+    AuthorTopic:
+      allOf:
+        - $ref: "#/components/schemas/Topic"
+        - type: object
+          properties:
+            author:
+              $ref: "#/components/schemas/Author"
