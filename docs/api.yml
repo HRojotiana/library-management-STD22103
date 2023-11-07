@@ -123,12 +123,28 @@ paths:
           required: true
       responses:
         200:
-          description: The updated book
+          description: The updated book with author
           content:
             application/json:
               schema: 
                 $ref: "#/components/schemas/Book"
-            
+  /books/authors: 
+    put:
+      operationId: updateBookAuthor 
+      requestBody:
+        content:
+          application/json:
+            schema: 
+              type: array
+              items: 
+                $ref: "#/components/schemas/UpdateBookAuthor"  
+      responses:
+        200:
+          description: The updated book with the author
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/UpdateBookAuthor"     
 components:
   schemas:
     Book:
