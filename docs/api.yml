@@ -140,6 +140,35 @@ paths:
       responses:
         200:
           description: An author deleted
+  /authors/page/{page}/pageSize/{pageSize}:
+    get:
+      summary: Get all authors
+      operationId: getAuthorsPagination
+      tags:
+        - Authors
+      parameters:
+        - name: page
+          in: path
+          required: true
+          schema:
+            type: integer
+            default: 1
+        - name: pageSize
+          in: path
+          required: true
+          schema: 
+            type: integer
+            default: 50
+      responses: 
+        200:
+          description: List of all authors
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  $ref: "#/components/schemas/Author"
+        
   /books/{bookId}/authors/{authorId}:
     put:
       tags:
