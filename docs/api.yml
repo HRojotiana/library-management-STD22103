@@ -235,15 +235,18 @@ components:
           type: string
         pageNumbers:
           type: integer
-        topic:
-          type: string
-          enum:
-            - ROMANCE
-            - COMEDY
-            - OTHER
         releaseDate:
           type: string
           format: date
+    Topic:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: string
+          topicName:
+            type: string      
     UpdateBookAuthor:
       type: object
       properties:
