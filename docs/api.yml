@@ -113,6 +113,22 @@ paths:
       responses:
         200:
           description: An author deleted
+  /books/{bookId}/authors/{authorId}:
+    put:
+      parameters:
+        - name: bookId
+          in: path
+          schema: 
+            type: string
+          required: true
+      responses:
+        200:
+          description: The updated book
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Book"
+            
 components:
   schemas:
     Book:
