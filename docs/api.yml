@@ -261,6 +261,23 @@ paths:
       responses:
         200:
           description: A topic deleted
+  /books/{bookId}/topics/{topicId}:
+    put:
+      tags:
+        - Books
+      parameters:
+        - name: bookId
+          in: path
+          schema: 
+            type: string
+          required: true
+      responses:
+        200:
+          description: The updated book with topic
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Topic"
 components:
   schemas:
     Book:
