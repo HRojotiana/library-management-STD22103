@@ -278,6 +278,26 @@ paths:
             application/json:
               schema: 
                 $ref: "#/components/schemas/Topic"
+  /books/topics: 
+    put:
+      tags:
+        - Books
+      operationId: updateBookTopic
+      requestBody:
+        content:
+          application/json:
+            schema: 
+              type: array
+              items: 
+                $ref: "#/components/schemas/UpdateBookTopic"  
+      responses:
+        200:
+          description: The updated book with the topic
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/UpdateBookTopic"
+    
 components:
   schemas:
     Book:
@@ -330,3 +350,14 @@ components:
       required:
         - bookId
         - authorId
+    UpdateBookTopic:
+      type: object
+      properties:
+        bookId:
+          type: string
+        topicId:
+          type: string
+      required:
+        - bookId
+        - topicId
+    
