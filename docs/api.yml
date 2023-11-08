@@ -152,18 +152,7 @@ paths:
       tags:
         - Authors
       parameters:
-        - name: page
-          in: path
-          required: true
-          schema:
-            type: integer
-            default: 1
-        - name: pageSize
-          in: path
-          required: true
-          schema: 
-            type: integer
-            default: 50
+        - $ref: "#/components/parameters/pathPagination""
       responses: 
         200:
           description: List of all authors
@@ -273,4 +262,18 @@ components:
           pageSize: 
             type: integer
             default: 50
+    pathPagination: 
+      name: pathPagination 
+      in: path
+      required: false
+      schema: 
+        type: object
+        properties:
+          page: 
+            type: integer
+            default: 1
+          pageSize: 
+            type: integer
+            default: 50
+
           
