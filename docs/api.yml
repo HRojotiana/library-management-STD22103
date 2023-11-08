@@ -248,6 +248,35 @@ components:
       required:
         - bookId
         - authorId
+    Response: 
+      type: object
+      properties:
+        status: 
+          $ref: "#/components/schemas/Status"
+        body: 
+          $ref: "#/components/schemas/Body"
+    Status: 
+      type: object
+      properties:
+        statusCode: 
+          type: integer
+        message: 
+          type: string
+    Body: 
+      type: object
+      properties:
+        book: 
+          $ref: "#/components/schemas/Author"
+        bookList: 
+          type: array
+          items: 
+            $ref: "#/components/schemas/Book"
+        author: 
+         $ref: "#/components/schemas/Author" 
+        authorList: 
+          type: array
+          items: 
+            $ref: "#/components/schemas/Author"
   parameters:
     queryPagination:
       name: queryPagination 
@@ -275,5 +304,3 @@ components:
           pageSize: 
             type: integer
             default: 50
-
-          
