@@ -390,6 +390,46 @@ paths:
             application/json:
               schema: 
                 $ref: "#/components/schemas/Status500"
+  /authors/import:
+    post:
+      summary: Import authors from Excel or JSON
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/Author"
+          application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+            schema:
+              type: object  
+        description: auhtors files (JSON or Excel)
+      responses:
+        200:
+          description: Authors imported
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Response200"
+        400: 
+          description: 400 bad request
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status400"
+        403: 
+          description: 403 Forbidden
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status403"
+        500: 
+          description: 500 Internal server error
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status500"
+    
 components:
   schemas:
     Book:
