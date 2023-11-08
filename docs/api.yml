@@ -145,14 +145,14 @@ paths:
       responses:
         200:
           description: Multiple authors deleted
-  /authors/page/{page}/pageSize/{pageSize}:
+  /authors/{pathPagination}:
     get:
       summary: Get all authors
       operationId: getAuthorsPagination
       tags:
         - Authors
       parameters:
-        - $ref: "#/components/parameters/pathPagination""
+        - $ref: "#/components/parameters/pathPagination"
       responses: 
         200:
           description: List of all authors
