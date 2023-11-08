@@ -40,13 +40,29 @@ paths:
         - $ref: "#/components/parameters/queryPagination"
       responses:
         200:
-          description: The list of filtered books
+          description: List of ordered books
           content:
             application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Book'
+              schema: 
+                $ref: "#/components/schemas/Status200"
+        400: 
+          description: 400 bad request
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status400"
+        403: 
+          description: 403 Forbidden
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status403"
+        500: 
+          description: 500 Internal server error
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status500"
     put:
       summary: Create or update a list of books
       operationId: crupdateBooks
@@ -65,9 +81,25 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Book'
+                $ref: "#/components/schemas/Response200"
+        400: 
+          description: 400 bad request
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status400"
+        403: 
+          description: 403 Forbidden
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status403"
+        500: 
+          description: 500 Internal server error
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status500"
   /authors:
     get:
       summary: Get all authors 
@@ -88,9 +120,25 @@ paths:
           content:
             application/json:
               schema: 
-                type: array
-                items: 
-                  $ref: '#/components/schemas/Author'
+                $ref: "#/components/schemas/Response200"
+        400: 
+          description: 400 bad request
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status400"
+        403: 
+          description: 403 Forbidden
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status403"
+        500: 
+          description: 500 Internal server error
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status500"
     put:
       summary: Create or update an author
       operationId: crupdateAuthor
@@ -109,9 +157,25 @@ paths:
           content:
             application/json:
               schema: 
-                type: array
-                items: 
-                  $ref: '#/components/schemas/Author'
+               $ref: "#/components/schemas/Response200"
+        400: 
+          description: 400 bad request
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status400"
+        403: 
+          description: 403 Forbidden
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status403"
+        500: 
+          description: 500 Internal server error
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status500"
   /authors/{id}:
     delete:
       summary: Delete an author
@@ -128,6 +192,24 @@ paths:
       responses:
         200:
           description: An author deleted
+        400: 
+          description: 400 bad request
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status400"
+        403: 
+          description: 403 Forbidden
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status403"
+        500: 
+          description: 500 Internal server error
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status500"
   /multipleDelete:
     delete: 
       summary: Delete multiple authors
@@ -145,6 +227,24 @@ paths:
       responses:
         200:
           description: Multiple authors deleted
+        400: 
+          description: 400 bad request
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status400"
+        403: 
+          description: 403 Forbidden
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status403"
+        500: 
+          description: 500 Internal server error
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status500"
   /authors/{pathPagination}:
     get:
       summary: Get all authors
@@ -159,9 +259,25 @@ paths:
           content:
             application/json:
               schema: 
-                type: array
-                items: 
-                  $ref: "#/components/schemas/Author"
+                $ref: "#/components/schemas/Response200"
+        400: 
+          description: 400 bad request
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status400"
+        403: 
+          description: 403 Forbidden
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status403"
+        500: 
+          description: 500 Internal server error
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status500"
         
   /books/{bookId}/authors/{authorId}:
     put:
@@ -179,7 +295,25 @@ paths:
           content:
             application/json:
               schema: 
-                $ref: "#/components/schemas/Book"
+                $ref: "#/components/schemas/Response200"
+        400: 
+          description: 400 bad request
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status400"
+        403: 
+          description: 403 Forbidden
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status403"
+        500: 
+          description: 500 Internal server error
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status500"
   /books/authors: 
     put:
       tags:
@@ -198,7 +332,25 @@ paths:
           content:
             application/json:
               schema: 
-                $ref: "#/components/schemas/UpdateBookAuthor"     
+                $ref: "#/components/schemas/Response200"   
+        400: 
+          description: 400 bad request
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status400"
+        403: 
+          description: 403 Forbidden
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status403" 
+        500: 
+          description: 500 Internal server error
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Status500" 
 components:
   schemas:
     Book:
@@ -260,7 +412,31 @@ components:
           description: Operation successful
           properties:
             status200: 
-              $ref: "#/components/schemas/Status200"              
+              $ref: "#/components/schemas/Status200"
+    Response400: 
+      allOf:
+        - $ref: "#/components/schemas/Response"
+          type: object
+          description: Bad request
+          properties:
+            status200: 
+              $ref: "#/components/schemas/Status400"
+    Response403: 
+      allOf:
+        - $ref: "#/components/schemas/Response"
+          type: object
+          description: Forbidden
+          properties:
+            status200: 
+              $ref: "#/components/schemas/Status403"
+    Response500: 
+      allOf:
+        - $ref: "#/components/schemas/Response"
+          type: object
+          description: Forbidden
+          properties:
+            status200: 
+              $ref: "#/components/schemas/Status500"              
     Status200: 
       type: object
       properties:
@@ -268,21 +444,42 @@ components:
           example: 200
         message:
           example: "OK"
-    Body: 
+    Status400: 
       type: object
       properties:
-        book: 
-          $ref: "#/components/schemas/Author"
-        bookList: 
-          type: array
-          items: 
-            $ref: "#/components/schemas/Book"
-        author: 
-         $ref: "#/components/schemas/Author" 
-        authorList: 
-          type: array
-          items: 
-            $ref: "#/components/schemas/Author"
+        code: 
+          example: 400
+        message:
+          example: "Bad request"
+    Status403: 
+      type: object
+      properties:
+        code: 
+          example: 403
+        message:
+          example: "Forbidden"
+    Status500: 
+      type: object
+      properties:
+        code: 
+          example: 500
+        message:
+          example: "Internal server error"
+    Body: 
+      type: object
+      oneOf:
+        - $ref: "#/components/schemas/Book"
+        - $ref: "#/components/schemas/Books"
+        - $ref: "#/components/schemas/Author"
+        - $ref: "#/components/schemas/Authors"
+    Books: 
+      type: array
+      items: 
+        $ref: "#/components/schemas/Book"
+    Authors: 
+      type: array
+      items: 
+        $ref: "#/components/schemas/Author" 
   parameters:
     queryPagination:
       name: queryPagination 
