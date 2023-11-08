@@ -251,17 +251,23 @@ components:
     Response: 
       type: object
       properties:
-        status: 
-          $ref: "#/components/schemas/Status"
         body: 
           $ref: "#/components/schemas/Body"
-    Status: 
+    Response200: 
+      allOf:
+        - $ref: "#/components/schemas/Response"
+          type: object
+          description: Operation successful
+          properties:
+            status200: 
+              $ref: "#/components/schemas/Status200"              
+    Status200: 
       type: object
       properties:
-        statusCode: 
-          type: integer
-        message: 
-          type: string
+        code: 
+          example: 200
+        message:
+          example: "OK"
     Body: 
       type: object
       properties:
