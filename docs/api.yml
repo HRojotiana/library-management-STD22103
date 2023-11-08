@@ -8,6 +8,7 @@ servers:
 tags:
   - name: Books  
   - name: Authors
+  - name: Import
 paths:
   /books:
     get:
@@ -354,6 +355,8 @@ paths:
   /books/import:
     post:
       summary: Import books from Excel or JSON
+      tags:
+        - Import
       requestBody:
         content:
           application/json:
@@ -393,6 +396,8 @@ paths:
   /authors/import:
     post:
       summary: Import authors from Excel or JSON
+      tags:
+        - Import
       requestBody:
         content:
           application/json:
