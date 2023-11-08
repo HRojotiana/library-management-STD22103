@@ -6,8 +6,8 @@ info:
 servers:
   - url: https://library.com
 tags:
-  - Books
-  - Authors
+  - name: Books
+  - name: Authors
 paths:
   /books:
     get:
