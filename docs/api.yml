@@ -37,20 +37,7 @@ paths:
           schema: 
             type: string
             format: date
-        - name: page
-          in: query
-          description: number of pages 
-          required: false
-          schema: 
-            type: integer
-            default: 1
-        - name: pageSize
-          in: query
-          description: size of the page
-          required: false
-          schema:
-            type: integer
-            default: 50
+        - $ref: "#/components/parameters/queryPagination"
       responses:
         200:
           description: The list of filtered books
@@ -272,3 +259,18 @@ components:
       required:
         - bookId
         - authorId
+  parameters:
+    queryPagination:
+      name: queryPagination 
+      in: query
+      required:  false
+      schema: 
+        type: object
+        properties:
+          page: 
+            type: integer
+            default: 1
+          pageSize: 
+            type: integer
+            default: 50
+          
