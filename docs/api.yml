@@ -41,6 +41,13 @@ paths:
             format: date
         - $ref: "#/components/parameters/QueryPage"
         - $ref: "#/components/parameters/QueryPageSize"
+        - name: status
+          in: query
+          description: Status if the book is available pr not
+          required: false
+          schema:
+            type: string
+            default: "AVAILABLE"
       responses:
         200:
            $ref: "#/components/responses/BookList_200"
@@ -355,6 +362,11 @@ components:
         releaseDate:
           type: string
           format: date
+        status:
+          type: string
+          enum:
+            - BORROWED
+            - AVAILABLE
     UpdateBookAuthor:
       type: object
       properties:
