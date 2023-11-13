@@ -265,17 +265,9 @@ paths:
         400: 
           $ref: "#/components/responses/400"
         403: 
-          description: 403 Forbidden
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status403"
+           $ref: "#/components/responses/403"
         500: 
-          description: 500 Internal server error
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status500"
+          $ref: "#/components/responses/500"
     
 components:
   schemas:
@@ -325,72 +317,7 @@ components:
           type: string
       required:
         - bookId
-        - authorId
-    Response: 
-      type: object
-      properties:
-        body: 
-          $ref: "#/components/schemas/Body"
-    Response200: 
-      allOf:
-        - $ref: "#/components/schemas/Response"
-          type: object
-          description: Operation successful
-          properties:
-            status200: 
-              $ref: "#/components/schemas/Status200"
-    Response400: 
-      allOf:
-        - $ref: "#/components/schemas/Response"
-          type: object
-          description: Bad request
-          properties:
-            status200: 
-              $ref: "#/components/schemas/Status400"
-    Response403: 
-      allOf:
-        - $ref: "#/components/schemas/Response"
-          type: object
-          description: Forbidden
-          properties:
-            status200: 
-              $ref: "#/components/schemas/Status403"
-    Response500: 
-      allOf:
-        - $ref: "#/components/schemas/Response"
-          type: object
-          description: Forbidden
-          properties:
-            status200: 
-              $ref: "#/components/schemas/Status500"              
-    Status200: 
-      type: object
-      properties:
-        code: 
-          example: 200
-        message:
-          example: "OK"
-    Status400: 
-      type: object
-      properties:
-        code: 
-          example: 400
-        message:
-          example: "Bad request"
-    Status403: 
-      type: object
-      properties:
-        code: 
-          example: 403
-        message:
-          example: "Forbidden"
-    Status500: 
-      type: object
-      properties:
-        code: 
-          example: 500
-        message:
-          example: "Internal server error"
+        - authorId             
     ResponseStatus: 
       type: object
       properties:
@@ -505,19 +432,19 @@ components:
         application/json:
           schema: 
             $ref: "#/components/schemas/AuthorListBody"    
-    400:
+    '400':
       description: Bad Request 
       content:
         application/json:
           schema: 
             $ref: "#/components/schemas/BadRequestBody"
-    403:
+    '403':
       description: Forbidden
       content:
         application/json:
           schema: 
             $ref: "#/components/schemas/ForbiddenBody"
-    500:
+    '500':
       description: Internal Server Error
       content:
         application/json:
