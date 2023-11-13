@@ -154,11 +154,7 @@ paths:
                 $ref: '#/components/schemas/Author'
       responses:
         200:
-          description: list of created or updated author
-          content:
-            application/json:
-              schema: 
-               $ref: "#/components/schemas/Response200"
+          $ref: "#/components/schemas/Response200"
         400: 
           description: 400 bad request
           content:
@@ -565,29 +561,31 @@ components:
       items: 
         $ref: "#/components/schemas/Author" 
   parameters:
-    queryPagination:
-      name: queryPagination 
+    QueryPage:
+      name: queryPage 
       in: query
       required:  false
       schema: 
-        type: object
-        properties:
-          page: 
-            type: integer
-            default: 1
-          pageSize: 
-            type: integer
-            default: 50
-    pathPagination: 
-      name: pathPagination 
+        type: integer
+        default: 1
+    QueryPageSize:
+      name: queryPageSize
+      in: query
+      required:  false
+      schema: 
+        type: integer
+        default: 50
+    pathPage: 
+      name: pathPage
       in: path
       required: false
       schema: 
-        type: object
-        properties:
-          page: 
-            type: integer
-            default: 1
-          pageSize: 
-            type: integer
-            default: 50
+        type: integer
+        default: 1
+    pathPageSize: 
+      name: pathPage
+      in: path
+      required: false
+      schema: 
+        type: integer
+        default: 50
