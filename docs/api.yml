@@ -314,6 +314,42 @@ paths:
           $ref: "#/components/responses/403"
         500:
           $ref: "#/components/responses/500"
+  /visitors/{visitorId}/activities:
+    get:
+      summary: List of a visitor's activities
+      tags:
+        - Visitors
+      parameters:
+        - name: visitorId
+          in: path
+          description: the visitor's id
+          required: true
+          schema:
+            type: string
+        - name: startDate
+          in: query
+          description: starting date
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: endDate
+          in: query
+          description: Ending date
+          required: false
+          schema:
+            type: string
+            format: date-time
+      responses:
+        200:
+          $ref: "#/components/responses/VisitorActivity_200"
+        400:
+          $ref: "#/components/responses/400"
+        403:
+          $ref: "#/components/responses/403"
+        500:
+          $ref: "#/components/responses/500"
+
 components:
   schemas:
     Book:
@@ -344,6 +380,18 @@ components:
           type: string
         reference:
           type: string
+    VisitorActivity:
+      type: object
+      properties:
+        book:
+          $ref: "#/components/schemas/Book"
+        activityType:
+          type: string
+          description: if it's a borrowing or returning
+        activityDate:
+          type: string
+          format: date-time
+          description: date and time of the activity
     CrupdateBook:
       type: object
       properties:
@@ -444,6 +492,15 @@ components:
                   $ref: "#/components/schemas/Book"
                 visitor:
                   $ref: "#/components/schemas/Visitor"
+    VisitorActivityBody:
+      allOf:
+        - $ref: "#/components/schemas/RequestBodyTemplate"
+        - properties:
+            body:
+              type: array
+              items:
+                $ref: "#/components/schemas/VisitorActivity"
+
     Body: 
       type: object
       oneOf:
@@ -519,6 +576,12 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/VisitorBookBody"
+    VisitorActivity_200:
+      description: List of a visitor's activities
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/VisitorActivityBody"
     '400':
       description: Bad Request 
       content:
