@@ -38,7 +38,8 @@ paths:
           schema: 
             type: string
             format: date
-        - $ref: "#/components/parameters/queryPagination"
+        - $ref: "#/components/parameters/QueryPage"
+        - $ref: "#/components/parameters/QueryPageSize"
       responses:
         200:
           description: List of ordered books
@@ -575,15 +576,15 @@ components:
       schema: 
         type: integer
         default: 50
-    pathPage: 
+    PathPage: 
       name: pathPage
       in: path
       required: false
       schema: 
         type: integer
         default: 1
-    pathPageSize: 
-      name: pathPage
+    PathPageSize: 
+      name: pathPageSize
       in: path
       required: false
       schema: 
