@@ -276,9 +276,37 @@ paths:
         - Books
       parameters:
         - $ref: "#/components/parameters/PathBookId"
-          description: The id of the visitor who borrowed the book
+          description: The id of the visitor who borrows the book
         - $ref: "#/components/parameters/PathVisitorId"
           description: The id of the book to be borrowed
+      responses:
+        200:
+          $ref: "#/components/responses/VisitorBook_200"
+        400:
+          $ref: "#/components/responses/400"
+        403:
+          $ref: "#/components/responses/403"
+        500:
+          $ref: "#/components/responses/500"
+  /books/{visitorId}/{bookId}/return:
+    put:
+      summary: Returning a book
+      tags:
+        - Books
+      parameters:
+        - $ref: "#/components/parameters/PathBookId"
+          description: The id of the visitor who returns the book
+        - $ref: "#/components/parameters/PathVisitorId"
+          description: The id of the book to be returned
+      responses:
+        200:
+          $ref: "#/components/responses/VisitorBook_200"
+        400:
+          $ref: "#/components/responses/400"
+        403:
+          $ref: "#/components/responses/403"
+        500:
+          $ref: "#/components/responses/500"
 components:
   schemas:
     Book:
@@ -393,7 +421,17 @@ components:
               type: array
               items: 
                 $ref: "#/components/schemas/Author"
-    
+    VisitorBookBody:
+      allOf:
+        - $ref: "#/components/schemas/RequestBodyTemplate"
+        - properties:
+            body:
+              type: object
+              properties:
+                book:
+                  $ref: "#/components/schemas/Book"
+                visitor:
+                  $ref: "#/components/schemas/Visitor"
     Body: 
       type: object
       oneOf:
@@ -462,7 +500,13 @@ components:
       content:
         application/json:
           schema: 
-            $ref: "#/components/schemas/AuthorListBody"    
+            $ref: "#/components/schemas/AuthorListBody"
+    VisitorBook_200:
+      description: List of books and visitors
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/VisitorBookBody"
     '400':
       description: Bad Request 
       content:
