@@ -340,6 +340,16 @@ paths:
           schema:
             type: string
             format: date-time
+        - name: period
+          in: query
+          description: Period (day, week or hour)
+          required: false
+          schema:
+            type: string
+            enum:
+              - day
+              - week
+              - hour
       responses:
         200:
           $ref: "#/components/responses/VisitorActivity_200"
