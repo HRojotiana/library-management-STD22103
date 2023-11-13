@@ -243,14 +243,15 @@ paths:
             application/json:
               schema: 
                 $ref: "#/components/schemas/Status500"
-  /authors/{pathPagination}:
+  /authors/page/{page}/pageSize/{pageSize}:
     get:
       summary: Get all authors
       operationId: getAuthorsPagination
       tags:
         - Authors
       parameters:
-        - $ref: "#/components/parameters/pathPagination"
+        - $ref: "#/components/parameters/PathPage"
+        - $ref: "#/components/parameters/PathPageSize"
       responses: 
         200:
           description: List of all authors
