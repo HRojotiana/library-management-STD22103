@@ -42,29 +42,13 @@ paths:
         - $ref: "#/components/parameters/QueryPageSize"
       responses:
         200:
-          description: List of ordered books
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status200"
+           $ref: "#/components/responses/BookList_200"
         400: 
-          description: 400 bad request
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status400"
+          $ref: "#/components/responses/400"
         403: 
-          description: 403 Forbidden
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status403"
+          $ref: "#/components/responses/403"
         500: 
-          description: 500 Internal server error
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status500"
+          $ref: "#/components/responses/500"
     put:
       summary: Create or update a list of books
       operationId: crupdateBooks
@@ -79,29 +63,13 @@ paths:
                 $ref: '#/components/schemas/Book'
       responses:
         200:
-          description: The list of created or updated books
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Response200"
+          $ref: "#/components/responses/BookList_200"
         400: 
-          description: 400 bad request
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status400"
+          $ref: "#/components/responses/400"
         403: 
-          description: 403 Forbidden
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status403"
+          $ref: "#/components/responses/403"
         500: 
-          description: 500 Internal server error
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status500"
+          $ref: "#/components/responses/500"
   /authors:
     get:
       summary: Get all authors 
@@ -118,29 +86,13 @@ paths:
             type: string
       responses:
         200: 
-          description: list of filter author 
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Response200"
+          $ref: "#/components/responses/AuthorList_200"
         400: 
-          description: 400 bad request
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status400"
+          $ref: "#/components/responses/400"
         403: 
-          description: 403 Forbidden
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status403"
+          $ref: "#/components/responses/403"
         500: 
-          description: 500 Internal server error
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status500"
+          $ref: "#/components/responses/500"
     put:
       summary: Create or update an author
       operationId: crupdateAuthor
@@ -155,25 +107,13 @@ paths:
                 $ref: '#/components/schemas/Author'
       responses:
         200:
-          $ref: "#/components/schemas/Response200"
+          $ref: "#/components/responses/AuthorList_200"
         400: 
-          description: 400 bad request
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status400"
+          $ref: "#/components/responses/400"
         403: 
-          description: 403 Forbidden
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status403"
+          $ref: "#/components/responses/403"
         500: 
-          description: 500 Internal server error
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status500"
+          $ref: "#/components/responses/500"
   /authors/{id}:
     delete:
       summary: Delete an author
@@ -189,25 +129,13 @@ paths:
             type: string
       responses:
         200:
-          description: An author deleted
+          $ref: "#/components/responses/AuthorList_200"
         400: 
-          description: 400 bad request
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status400"
+          $ref: "#/components/responses/400"
         403: 
-          description: 403 Forbidden
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status403"
+          $ref: "#/components/responses/403"
         500: 
-          description: 500 Internal server error
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status500"
+          $ref: "#/components/responses/500"
   /multipleDelete:
     delete: 
       summary: Delete multiple authors
@@ -226,23 +154,11 @@ paths:
         200:
           description: Multiple authors deleted
         400: 
-          description: 400 bad request
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status400"
+          $ref: "#/components/responses/400"
         403: 
-          description: 403 Forbidden
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status403"
+          $ref: "#/components/responses/403"
         500: 
-          description: 500 Internal server error
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status500"
+          $ref: "#/components/responses/500"
   /authors/page/{page}/pageSize/{pageSize}:
     get:
       summary: Get all authors
@@ -254,29 +170,13 @@ paths:
         - $ref: "#/components/parameters/PathPageSize"
       responses: 
         200:
-          description: List of all authors
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Response200"
+          $ref: "#/components/responses/AuthorList_200"
         400: 
-          description: 400 bad request
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status400"
+          $ref: "#/components/responses/400"
         403: 
-          description: 403 Forbidden
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status403"
+          $ref: "#/components/responses/403"
         500: 
-          description: 500 Internal server error
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status500"
+          $ref: "#/components/responses/500"
         
   /books/{bookId}/authors/{authorId}:
     put:
@@ -290,29 +190,13 @@ paths:
           required: true
       responses:
         200:
-          description: The updated book with author
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Response200"
+          $ref: "#/components/responses/BookList_200"
         400: 
-          description: 400 bad request
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status400"
+          $ref: "#/components/responses/400"
         403: 
-          description: 403 Forbidden
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status403"
+          $ref: "#/components/responses/403"
         500: 
-          description: 500 Internal server error
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status500"
+          $ref: "#/components/responses/500"
   /books/authors: 
     put:
       tags:
@@ -327,29 +211,13 @@ paths:
                 $ref: "#/components/schemas/UpdateBookAuthor"  
       responses:
         200:
-          description: The updated book with the author
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Response200"   
+          $ref: "#/components/responses/BookList_200"   
         400: 
-          description: 400 bad request
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status400"
+          $ref: "#/components/responses/400"
         403: 
-          description: 403 Forbidden
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status403" 
+          $ref: "#/components/responses/403" 
         500: 
-          description: 500 Internal server error
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status500"
+          $ref: "#/components/responses/500"
   /books/import:
     post:
       summary: Import books from Excel or JSON
@@ -368,29 +236,13 @@ paths:
         description: book files (Excel or JSON)
       responses:
         200:
-          description: Books imported
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Response200"
+          $ref: "#/components/responses/BookList_200"
         400: 
-          description: 400 bad request
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status400"
+         $ref: "#/components/responses/400"
         403: 
-          description: 403 Forbidden
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status403"
+          $ref: "#/components/responses/403"
         500: 
-          description: 500 Internal server error
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status500"
+          $ref: "#/components/responses/500"
   /authors/import:
     post:
       summary: Import authors from Excel or JSON
@@ -409,17 +261,9 @@ paths:
         description: auhtors files (JSON or Excel)
       responses:
         200:
-          description: Authors imported
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Response200"
+          $ref: "#/components/responses/AuthorList_200"
         400: 
-          description: 400 bad request
-          content:
-            application/json:
-              schema: 
-                $ref: "#/components/schemas/Status400"
+          $ref: "#/components/responses/400"
         403: 
           description: 403 Forbidden
           content:
@@ -547,6 +391,63 @@ components:
           example: 500
         message:
           example: "Internal server error"
+    ResponseStatus: 
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+        message:
+          type: string
+          example: "OK"
+    RequestBodyTemplate: 
+      type: object
+      properties:
+        status:
+          $ref: "#/components/schemas/ResponseStatus"
+        body: 
+          type: object
+    BadRequestBody:
+      allOf:
+        - $ref: "#/components/schemas/RequestBodyTemplate"
+      example:
+        status: 
+          code: 400
+          status: "Bad Request"
+        body: {}
+    ForbiddenBody:
+      allOf:
+        - $ref: "#/components/schemas/RequestBodyTemplate"
+      example:
+        status: 
+          code: 403
+          status: "Forbidden"
+        body: {}
+    InternalServerErrorBody:
+      allOf:
+        - $ref: "#/components/schemas/RequestBodyTemplate"
+      example:
+        status: 
+          code: 500
+          status: "Internal Server Error"
+        body: {}
+    BookListBody: 
+      allOf:
+         - $ref: "#/components/schemas/RequestBodyTemplate"
+         - properties:
+             body:
+              type: array
+              items: 
+                $ref: "#/components/schemas/Book"
+    AuthorListBody: 
+      allOf:
+         - $ref: "#/components/schemas/RequestBodyTemplate"
+         - properties:
+             body:
+              type: array
+              items: 
+                $ref: "#/components/schemas/Author"
+    
     Body: 
       type: object
       oneOf:
@@ -591,3 +492,34 @@ components:
       schema: 
         type: integer
         default: 50
+  responses:
+    BookList_200: 
+      description: List of books
+      content:
+        application/json:
+          schema: 
+            $ref: "#/components/schemas/BookListBody"
+    AuthorList_200: 
+      description: List of books
+      content:
+        application/json:
+          schema: 
+            $ref: "#/components/schemas/AuthorListBody"    
+    400:
+      description: Bad Request 
+      content:
+        application/json:
+          schema: 
+            $ref: "#/components/schemas/BadRequestBody"
+    403:
+      description: Forbidden
+      content:
+        application/json:
+          schema: 
+            $ref: "#/components/schemas/ForbiddenBody"
+    500:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema: 
+            $ref: "#/components/schemas/InternalServerErrorBody"
