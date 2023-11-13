@@ -269,7 +269,16 @@ paths:
            $ref: "#/components/responses/403"
         500: 
           $ref: "#/components/responses/500"
-    
+  /books/{visitorId}/{bookId}/borrow:
+    put:
+      summary: Borrowing a book
+      tags:
+        - Books
+      parameters:
+        - $ref: "#/components/parameters/PathBookId"
+          description: The id of the visitor who borrowed the book
+        - $ref: "#/components/parameters/PathVisitorId"
+          description: The id of the book to be borrowed
 components:
   schemas:
     Book:
@@ -429,6 +438,18 @@ components:
       schema: 
         type: integer
         default: 50
+    PathBookId:
+      name: bookId
+      in: path
+      required: true
+      schema:
+        type: string
+    PathVisitorId:
+      name: visitorId
+      in: path
+      required: true
+      schema:
+        type: string
   responses:
     BookList_200: 
       description: List of books
