@@ -610,3 +610,19 @@ components:
         application/json:
           schema: 
             $ref: "#/components/schemas/InternalServerErrorBody"
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: "https//api/oauth/security.com/authorize"
+          scopes:
+            read: reading acces
+        password:
+          tokenUrl: "https//api/security.com/token"
+          scopes:
+            write: writing acces
+        clientCredentials:
+          tokenUrl: "https//api/security.com/token"
+          scopes:
+            admin: administrator acces
