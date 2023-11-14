@@ -48,6 +48,8 @@ paths:
           schema:
             type: string
             default: "AVAILABLE"
+      security:
+        - oauth2: ['read']
       responses:
         200:
            $ref: "#/components/responses/BookList_200"
@@ -92,6 +94,8 @@ paths:
           required: false
           schema: 
             type: string
+      security:
+        - oauth2: ['read']
       responses:
         200: 
           $ref: "#/components/responses/AuthorList_200"
@@ -176,6 +180,8 @@ paths:
       parameters:
         - $ref: "#/components/parameters/PathPage"
         - $ref: "#/components/parameters/PathPageSize"
+      security:
+        - oauth2: ['read']
       responses: 
         200:
           $ref: "#/components/responses/AuthorList_200"
@@ -242,6 +248,8 @@ paths:
             schema:
               type: object  
         description: book files (Excel or JSON)
+      security:
+        - oauth2: ['admin']
       responses:
         200:
           $ref: "#/components/responses/BookList_200"
@@ -267,6 +275,8 @@ paths:
             schema:
               type: object  
         description: auhtors files (JSON or Excel)
+      security:
+        - oauth2: ['admin']
       responses:
         200:
           $ref: "#/components/responses/AuthorList_200"
@@ -286,6 +296,8 @@ paths:
           description: The id of the visitor who borrows the book
         - $ref: "#/components/parameters/PathVisitorId"
           description: The id of the book to be borrowed
+      security:
+        - oauth2: ['admin']
       responses:
         200:
           $ref: "#/components/responses/VisitorBook_200"
@@ -305,6 +317,8 @@ paths:
           description: The id of the visitor who returns the book
         - $ref: "#/components/parameters/PathVisitorId"
           description: The id of the book to be returned
+      security:
+        - oauth2: ['admin']
       responses:
         200:
           $ref: "#/components/responses/VisitorBook_200"
