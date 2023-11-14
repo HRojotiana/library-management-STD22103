@@ -151,6 +151,8 @@ paths:
   /multipleDelete:
     delete: 
       summary: Delete multiple authors
+      tags:
+        - Authors
       description: Delete multiple authors by their ids
       requestBody: 
         content:
